@@ -91,12 +91,13 @@ int cedrus_delete_by_hash(const Cedrus *cedrus, const uint8_t *key);
 /* */
 
 /* Helper functions */
-int cedrus_modify(const Cedrus *db, CedrusValueMut *vm, void (*f)(uint8_t *base, size_t size));
+int cedrus_modify(const Cedrus *db, CedrusValueMut *vm, void (*f)(uint8_t *base, size_t size, void *arg), void *f_arg);
+int cedrus_update(const Cedrus *db, CedrusValueMut *vm, const uint8_t *val, size_t val_size);
 CedrusValueInfo cedrus_vr_info(const CedrusValueRef *vr);
 CedrusValueInfo cedrus_vm_info(const CedrusValueMut *vr);
-int cedrus_free_vr(CedrusValueRef *vr);
-int cedrus_free_vm(CedrusValueMut *vm);
-int cedrus_free_kvh(CedrusKeyValue *kvh);
+int cedrus_vr_free(CedrusValueRef *vr);
+int cedrus_vm_free(CedrusValueMut *vm);
+int cedrus_kvh_free(CedrusKeyValue *kvh);
 
 /* Write batch related */
 CedrusWriteBatch *cedrus_writebatch_new(const Cedrus *cedrus);
@@ -117,7 +118,7 @@ void cedrus_print_profile(const Cedrus *cedrus);
 
 int cedrus_dump(const Cedrus *cedrus);
 CedrusIter *cedrus_new_iter(const Cedrus *cedrus);
-void cedrus_free_iter(CedrusIter *iter);
+void cedrus_iter_free(CedrusIter *iter);
 int cedrus_iter_next(CedrusIter *iter, CedrusKeyValue **kvh);
 int cedrus_check_integrity(Cedrus *cedrus);
 
