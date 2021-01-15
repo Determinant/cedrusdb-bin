@@ -95,9 +95,9 @@ int cedrus_modify(const Cedrus *db, CedrusValueMut *vm, void (*f)(uint8_t *base,
 int cedrus_update(const Cedrus *db, CedrusValueMut *vm, const uint8_t *val, size_t val_size);
 CedrusValueInfo cedrus_vr_info(const CedrusValueRef *vr);
 CedrusValueInfo cedrus_vm_info(const CedrusValueMut *vr);
-int cedrus_vr_free(CedrusValueRef *vr);
-int cedrus_vm_free(CedrusValueMut *vm);
-int cedrus_kvh_free(CedrusKeyValue *kvh);
+void cedrus_vr_free(CedrusValueRef *vr);
+void cedrus_vm_free(CedrusValueMut *vm);
+void cedrus_kvh_free(CedrusKeyValue *kvh);
 
 /* Write batch related */
 CedrusWriteBatch *cedrus_writebatch_new(const Cedrus *cedrus);
@@ -108,7 +108,7 @@ int cedrus_writebatch_put(CedrusWriteBatch *batch, const uint8_t *key, size_t ke
                                                     const uint8_t *val, size_t val_size);
 int cedrus_writebatch_delete(CedrusWriteBatch *batch, const uint8_t *key, size_t key_size);
 int cedrus_writebatch_write(CedrusWriteBatch *batch);
-int cedrus_writebatch_drop(CedrusWriteBatch *batch);
+void cedrus_writebatch_drop(CedrusWriteBatch *batch);
 /* */
 
 void cedrus_update_profile(const Cedrus *cedrus);
