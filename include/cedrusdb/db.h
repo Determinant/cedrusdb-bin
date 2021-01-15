@@ -108,6 +108,7 @@ int cedrus_writebatch_put(CedrusWriteBatch *batch, const uint8_t *key, size_t ke
                                                     const uint8_t *val, size_t val_size);
 int cedrus_writebatch_delete(CedrusWriteBatch *batch, const uint8_t *key, size_t key_size);
 int cedrus_writebatch_write(CedrusWriteBatch *batch);
+int cedrus_writebatch_drop(CedrusWriteBatch *batch);
 /* */
 
 void cedrus_update_profile(const Cedrus *cedrus);
