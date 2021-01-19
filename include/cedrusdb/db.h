@@ -1,6 +1,9 @@
 #ifndef _CEDRUS_DB_H
 #define _CEDRUS_DB_H
 
+/** NOTE: for a more detailed documentation, please refer to the `binding`
+ * section of the Rust doc where most functions are documented. */
+
 #include <stdint.h>
 #include <stddef.h>
 
@@ -58,11 +61,9 @@ typedef struct CedrusConfig {
     int32_t max_wal_aio_requests;
     size_t max_wal_queued;
     size_t max_wal_growth;
+    size_t huge_value_thres;
     size_t emulated_failure_point; /** only useful when emulated-failure feature is enabled */
 } CedrusConfig;
-
-/** NOTE: for a more detailed documentation, please refer to the `binding`
- * section of the Rust doc where most functions are documented. */
 
 /** Create a config object to be used in `cedrus_new`. */
 CedrusConfig cedrus_config_default();
