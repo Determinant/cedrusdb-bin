@@ -92,7 +92,7 @@ int cedrus_delete_by_hash(const Cedrus *cedrus, const uint8_t *key);
 
 /* Helper functions */
 int cedrus_modify(const Cedrus *db, CedrusValueMut *vm, void (*f)(uint8_t *base, size_t size, void *arg), void *f_arg);
-int cedrus_update(const Cedrus *db, CedrusValueMut *vm, const uint8_t *val, size_t val_size);
+int cedrus_replace(const Cedrus *db, CedrusValueMut *vm, const uint8_t *val, size_t val_size);
 CedrusValueInfo cedrus_vr_info(const CedrusValueRef *vr);
 CedrusValueInfo cedrus_vm_info(const CedrusValueMut *vr);
 void cedrus_vr_free(CedrusValueRef *vr);
